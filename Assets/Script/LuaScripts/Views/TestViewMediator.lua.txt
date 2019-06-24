@@ -1,0 +1,33 @@
+
+-- TestView 的中介者
+LuaMVC = CS.LuaMVC.LuaApplicationFacade -- 用于给luaMVC发送通知
+
+local testView = require('TestView')
+
+TestViewMediator = {}
+this = TestViewMediator
+
+TestViewMediator.NAME = "TestViewMediator"
+
+TestViewMediator.OnRegister = function()
+	testView.button.onClick:AddListener(function()
+        LuaMVC.SendNotification(NotificationType.AddTestData)
+    	end)
+	testView.Close()
+end
+
+TestViewMediator.OnRemove = function()
+
+end
+
+TestViewMediator.ListNotificationInterests = {NotificationType.STARTUP, NotificationType.AddTestData}
+
+TestViewMediator.HandleNotification = function(notification)
+	local name = notification.Name
+	local body = notification.Body
+	if name == NotificationType.STARTUP then
+		testView.Open()
+	elseif name == NotificationType.AddTestData then
+
+	end 
+end

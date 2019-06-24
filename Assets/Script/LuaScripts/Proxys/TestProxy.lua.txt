@@ -1,0 +1,20 @@
+
+--  
+TestProxy = {}
+this = TestProxy
+
+TestProxy.Name = "TestProxy"
+
+TestProxy.Data = 0
+
+TestProxy.OnRegister = function()
+end
+
+TestProxy.OnRemove = function()
+end
+
+TestProxy.Add = function()
+	TestProxy.Data = TestProxy.Data + 1
+end
+
+return TestProxy

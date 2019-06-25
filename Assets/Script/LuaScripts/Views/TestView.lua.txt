@@ -3,11 +3,10 @@
 TestView = {} 
 
 TestView.ViewName = ViewNames.TestView
-local transform
   
 TestView.awake = function()  
-    transform = TestView.self.transform
-    TestView.button = transform:GetComponentInChildren(typeof(CS.UnityEngine.UI.Button))
+    TestView.transform = TestView.self.transform
+    TestView.button = TestView.transform:GetComponentInChildren(typeof(CS.UnityEngine.UI.Button))
 end
 
 TestView.Open = function()

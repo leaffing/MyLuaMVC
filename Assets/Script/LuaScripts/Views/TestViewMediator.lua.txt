@@ -28,6 +28,6 @@ TestViewMediator.HandleNotification = function(notification)
 	if name == NotificationType.STARTUP then
 		testView.Open()
 	elseif name == NotificationType.AddTestData then
-
+		testView.transform:GetComponentInChildren(typeof(CS.UnityEngine.UI.Text)).text = "Add"
 	end 
 end

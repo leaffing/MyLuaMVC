@@ -14,6 +14,8 @@ function awake()
 	self:RegisterLuaCommand("StartUpCommand") 
 	self:RegisterLuaCommand("AddTestDataCommand") 
 
+	self:RegisterLuaProxy("TestProxy")
+
 	local testView = GameObject.Find("TestView")
 	testView:AddComponent(typeof(CS.LuaMVC.LuaMonobehaviour)):Init('TestView') 
 	self:RegisterLuaMediator('TestViewMediator')

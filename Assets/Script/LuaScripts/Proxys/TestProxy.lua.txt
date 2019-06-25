@@ -3,11 +3,12 @@
 TestProxy = {}
 this = TestProxy
 
-TestProxy.Name = "TestProxy"
+TestProxy.NAME = "TestProxy"
 
 TestProxy.Data = 0
 
 TestProxy.OnRegister = function()
+	TestProxy.Data = 10
 end
 
 TestProxy.OnRemove = function()

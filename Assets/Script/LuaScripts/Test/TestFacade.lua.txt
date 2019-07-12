@@ -1,0 +1,15 @@
+TestFacade = {}
+
+GameObject = CS.UnityEngine.GameObject
+
+TestFacade.luaFacade = nil
+
+TestFacade.StartUp = function(facade)
+    TestFacade.luaFacade = facade
+    TestFacade.luaFacade:RegisterLuaCommand("StartUpCommand") 
+    TestFacade.luaFacade:RegisterLuaCommand("AddTestDataCommand") 
+    TestFacade.luaFacade:RegisterLuaProxy("TestProxy")
+    local testView = GameObject.Find("TestView")
+    testView:AddComponent(typeof(CS.LuaMVC.LuaMonobehaviour)):Init(ViewNames.TestView) 
+    TestFacade.luaFacade:RegisterLuaMediator('TestViewMediator')
+end

@@ -3,6 +3,7 @@
 
 require('NotificationType') 
 require('ViewNames')
+require('TestFacade')
 
 UnityEngine = CS.UnityEngine
 GameObject = CS.UnityEngine.GameObject
@@ -10,16 +11,7 @@ LuaMVC = CS.LuaMVC.LuaApplicationFacade -- 用于给luaMVC发送通知
 AssetLoader = CS.LuaMVC.AssetLoader  -- 用于加载Resources/Assetbundle资源
  
 function awake()
-	print('lua part framework start up.')
-	self:RegisterLuaCommand("StartUpCommand") 
-	self:RegisterLuaCommand("AddTestDataCommand") 
-
-	self:RegisterLuaProxy("TestProxy")
-
-	local testView = GameObject.Find("TestView")
-	testView:AddComponent(typeof(CS.LuaMVC.LuaMonobehaviour)):Init('TestView') 
-	self:RegisterLuaMediator('TestViewMediator')
-
+	print('lua part framework start up.')	
 --[[
 	local canvasParent = GameObject.Find("Canvas/UICamera").transform
 
@@ -66,6 +58,8 @@ function awake()
 	end)
 	]]--
 
+	--打开曾是模块
+	TestFacade.StartUp(self)
 	LuaMVC.SendNotification(NotificationType.STARTUP)
 end
  

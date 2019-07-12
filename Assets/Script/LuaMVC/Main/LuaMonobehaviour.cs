@@ -13,7 +13,7 @@ namespace LuaMVC
         private Action luaOnDestroy = null;
         private LuaTable scriptEnv = null;
         
-        public void Init( string scriptName )  
+        public void Init(string scriptName)  
         {  
             scriptEnv = LuaApplicationFacade.luaEnv.NewTable();
             LuaTable meta = LuaApplicationFacade.luaEnv.NewTable();
